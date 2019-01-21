@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import Login from './pages/Login/login'
+import Layoutpage from './components/Layout/layout'
+import Pageone from './pages/Pageone/pageone'
+import Pagetwo from './pages/Pagetwo/pagetwo'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Router>
+            <Switch>
+                <Route path="/login" component={Login}></Route>
+                <Route path="/">
+                    {localStorage.getItem('user')?<Layoutpage>
+                        <Switch>
+                            <Route path='/pageone' component={Pageone}/>
+                            <Route path='/pagetwo' component={Pagetwo}/>
+                            <Redirect to="/pageone"/>
+                        </Switch>
+                    </Layoutpage>:<Redirect to="/login"/>}
+                </Route>
+            </Switch>
+        </Router>
       </div>
     );
   }

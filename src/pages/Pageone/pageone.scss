@@ -1,0 +1,20 @@
+#map{
+    width: 100%;
+    height:calc(100vh - 64px);
+}
+.select li{
+    display:inline-block;
+    position: relative;
+    width: 80px;
+    margin-right: 2px;
+    p{
+        display: block;
+        left: 0;
+        width: 80px;
+        position: absolute;
+        text-align: center;
+        bottom: -15px;
+        background: #347ebc;
+        color: #fff;
+    }
+}
