@@ -4,6 +4,8 @@ import Login from './pages/Login/login'
 import Layoutpage from './components/Layout/layout'
 import Pageone from './pages/Pageone/pageone'
 import Pagetwo from './pages/Pagetwo/pagetwo'
+import Pagethree from './pages/Pagethree/pagethree'
+import Timeline from './components/timeline/timeline'
 import './App.css';
 
 class App extends Component {
@@ -18,6 +20,8 @@ class App extends Component {
                         <Switch>
                             <Route path='/pageone' component={Pageone}/>
                             <Route path='/pagetwo' component={Pagetwo}/>
+                            <Route path='/pagethree' component={Pagethree}/>
+                            <Route path='/timeline' component={Timeline}/>
                             <Redirect to="/pageone"/>
                         </Switch>
                     </Layoutpage>:<Redirect to="/login"/>}

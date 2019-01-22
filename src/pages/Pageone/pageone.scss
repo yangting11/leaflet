@@ -2,10 +2,29 @@
     width: 100%;
     height:calc(100vh - 64px);
 }
+.myCSSClass{
+    background: #f30!important;
+    color: #fff!important;
+    border: 2px solid cyan;
+    z-index:9999;
+  }
+  .hoveritem{
+      z-index:99999!important;
+  }
+//   .leaflet-tooltip:hover{
+//       z-index:999999!important;
+//   }
+  .leaflet-tooltip-left.myCSSClass::before {
+    border-left-color: transparent;
+  }
+  .leaflet-tooltip-right.myCSSClass::before {
+    border-right-color: transparent;
+  }
 .select li{
     display:inline-block;
     position: relative;
     width: 80px;
+    border:1px solid #347ebc;
     margin-right: 2px;
     p{
         display: block;

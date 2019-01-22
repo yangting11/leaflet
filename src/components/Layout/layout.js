@@ -34,10 +34,10 @@ class Layoutpage extends Component{
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面二</span>}>
                                 <MenuItemGroup title="分类一">
                                     <Menu.Item key="setting:2-1"><Link to="pagetwo">子页面一</Link></Menu.Item>
-                                    <Menu.Item key="setting:2-2"><Link to="pagetwo">子页面二</Link></Menu.Item>
+                                    <Menu.Item key="setting:2-2"><Link to="pagethree">子页面二</Link></Menu.Item>
                                 </MenuItemGroup>
                                 <MenuItemGroup title="分类二">
-                                    <Menu.Item key="setting:2-3">子页面三</Menu.Item>
+                                    <Menu.Item key="setting:2-3"><Link to="timeline">子页面三</Link></Menu.Item>
                                     <Menu.Item key="setting:2-4">子页面四</Menu.Item>
                                 </MenuItemGroup>
                             </SubMenu>
@@ -60,7 +60,9 @@ class Layoutpage extends Component{
                                 <Menu.Item key="setting:6-2">子页面二</Menu.Item>
                             </SubMenu>
                         </Menu>
-                        <span className="logout">退出</span>
+                        <span className="logout">
+                            <Link to="/login">退出</Link>
+                        </span>
                     </div>
                 </Header>
                 <Content>
