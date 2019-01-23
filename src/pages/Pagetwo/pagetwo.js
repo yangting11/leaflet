@@ -1,19 +1,25 @@
 import React, {Component} from 'react'
+import './pagetwo.scss'
 import L from 'leaflet'
 import $ from 'jquery'
 import statesData from '../../assets/js/us-states.js'
-var map
+var map;
+var marker1;
 let myIcon = L.icon({
     iconUrl: require('../../assets/images/zpc1.png'),
     iconSize: [26, 26]
 });
 class Pagetwo extends Component{
+    state={
+        content:'',
+        showtip:false
+    }
     componentDidMount(){
         map = L.map('map').setView([37.8, -96], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-
+        var _this = this;
         L.geoJson(statesData).addTo(map);
         function getColor(d) {
             return d > 1000 ? '#800026' :
@@ -29,14 +35,49 @@ class Pagetwo extends Component{
             return {
                 fillColor: getColor(feature.properties.density),
                 weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.5
+                opacity: 0.5,
+                color: 'white', //边界线颜色
+                dashArray: '3',//虚线的长度
+                fillOpacity: 0.7
             };
         }
-        
-        L.geoJson(statesData, {style: style}).addTo(map);
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+        function highlightFeature(e){
+            // console.log('highlightFeature',e)
+        };
+        function resetHighlight(e){
+            // console.log('resetHighlight',e)
+        }
+        function zoomToFeature(e){
+            console.log(e)
+            console.log('zoomToFeature',e.target.feature)
+            // alert(e.containerPoint.x)
+            _this.setState({
+                showtip:true,
+                content:e.target.feature.properties.name
+            },()=>{
+                try {
+                    map.removeLayer(marker1);
+                    marker1 =  L.marker(e.latlng)
+                    map.addLayer(marker1)
+                    marker1.bindTooltip(e.target.feature.properties.name, {className: "mynewmarker",permanent: true, direction:'bottom'}).openTooltip();
+                }
+                catch(err) {
+                    // document.getElementById("demo").innerHTML = err.message;
+                    marker1 =  L.marker(e.latlng)
+                    map.addLayer(marker1)
+                    marker1.bindTooltip(e.target.feature.properties.name, {className: "mynewmarker",permanent: true, direction:'bottom'}).openTooltip();
+                }
+            })
+            $(".mynewmarker").css('background',getColor(e.target.feature.properties.density))            
+        }
+        L.geoJson(statesData, {style: style,onEachFeature: onEachFeature}).addTo(map);
 
         let arrtest = [
             {
@@ -83,7 +124,7 @@ class Pagetwo extends Component{
     }
     render(){
         return(
-            <div className="pageone">
+            <div className="pagetwo">
                 <div id="map"></div>
             </div>
         )
