@@ -42,13 +42,13 @@ class Layoutpage extends Component{
                                 </MenuItemGroup>
                             </SubMenu>
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面三</span>}>
-                                <Menu.Item key="setting:3-1">子页面一</Menu.Item>
-                                <Menu.Item key="setting:3-2">子页面二</Menu.Item>
+                                <Menu.Item key="setting:3-1"><Link to="echart">子页面一</Link></Menu.Item>
+                                <Menu.Item key="setting:3-2"><Link to="dthree">子页面二</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面四</span>}>
                                 <MenuItemGroup title="分类一">
-                                    <Menu.Item key="setting:4-1">子页面一</Menu.Item>
-                                    <Menu.Item key="setting:4-2">子页面二</Menu.Item>
+                                    <Menu.Item key="setting:4-1"><Link to="plotly">子页面一</Link></Menu.Item>
+                                    <Menu.Item key="setting:4-2"><Link to="plotly2">子页面二</Link></Menu.Item>
                                 </MenuItemGroup>
                             </SubMenu>
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面五</span>}>

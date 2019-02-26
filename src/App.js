@@ -5,6 +5,10 @@ import Layoutpage from './components/Layout/layout'
 import Pageone from './pages/Pageone/pageone'
 import Pagetwo from './pages/Pagetwo/pagetwo'
 import Pagethree from './pages/Pagethree/pagethree'
+import Echart from './pages/echart/echart'
+import Dthree from './pages/dthree/dthree'
+import Plotlypage from './pages/plotly/plotly'
+import Plotlysecond from './pages/plotly2/plotlysecond'
 import Timeline from './components/timeline/timeline'
 import './App.css';
 
@@ -22,6 +26,10 @@ class App extends Component {
                             <Route path='/pagetwo' component={Pagetwo}/>
                             <Route path='/pagethree' component={Pagethree}/>
                             <Route path='/timeline' component={Timeline}/>
+                            <Route path='/echart' component={Echart}/>
+                            <Route path='/dthree' component={Dthree}/>
+                            <Route path='/plotly' component={Plotlypage}/>
+                            <Route path='/plotly2' component={Plotlysecond}/>
                             <Redirect to="/pageone"/>
                         </Switch>
                     </Layoutpage>:<Redirect to="/login"/>}
