@@ -52,7 +52,7 @@ class Layoutpage extends Component{
                                 </MenuItemGroup>
                             </SubMenu>
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面五</span>}>
-                                <Menu.Item key="setting:5-1">子页面一</Menu.Item>
+                                <Menu.Item key="setting:5-1"><Link to="mapmove">子页面一</Link></Menu.Item>
                                 <Menu.Item key="setting:5-2">子页面二</Menu.Item>
                             </SubMenu>
                             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />页面六</span>}>

@@ -8,7 +8,9 @@ import Pagethree from './pages/Pagethree/pagethree'
 import Echart from './pages/echart/echart'
 import Dthree from './pages/dthree/dthree'
 import Plotlypage from './pages/plotly/plotly'
+import Plotlydot from './pages/plotlydot/plotlydot'
 import Plotlysecond from './pages/plotly2/plotlysecond'
+import Mapmove from './pages/mapmove/mapmove'
 import Timeline from './components/timeline/timeline'
 import './App.css';
 
@@ -29,7 +31,9 @@ class App extends Component {
                             <Route path='/echart' component={Echart}/>
                             <Route path='/dthree' component={Dthree}/>
                             <Route path='/plotly' component={Plotlypage}/>
+                            <Route path='/plotlydot' component={Plotlydot}/>
                             <Route path='/plotly2' component={Plotlysecond}/>
+                            <Route path='/mapmove' component={Mapmove}/>
                             <Redirect to="/pageone"/>
                         </Switch>
                     </Layoutpage>:<Redirect to="/login"/>}
